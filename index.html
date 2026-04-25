@@ -7,7 +7,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f5f4f0;--surface:#fff;--surface2:#efefea;--surface3:#e8e7e2;
+  --bg:#f5f4f0;--surface:#fff;--surface2:#efefea;
   --border:rgba(0,0,0,0.10);--border2:rgba(0,0,0,0.20);
   --text:#1a1a18;--text2:#6b6a65;--text3:#a8a7a2;
   --green-bg:#eaf3de;--green:#3b6d11;
@@ -16,7 +16,7 @@
   --r:10px;--rl:14px
 }
 @media(prefers-color-scheme:dark){:root{
-  --bg:#1c1c1a;--surface:#272725;--surface2:#313130;--surface3:#3a3938;
+  --bg:#1c1c1a;--surface:#272725;--surface2:#313130;
   --border:rgba(255,255,255,0.09);--border2:rgba(255,255,255,0.18);
   --text:#f0efea;--text2:#9b9a96;--text3:#6b6a65;
   --green-bg:#17340a;--green:#97c459;
@@ -24,16 +24,13 @@
   --red-bg:#501313;--red:#f09595
 }}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:5rem}
-
 header{background:var(--surface);border-bottom:0.5px solid var(--border);padding:.875rem 1.25rem;position:sticky;top:0;z-index:20}
 .hrow{max-width:720px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:16px;font-weight:700;letter-spacing:-.3px}
 .logo span{font-weight:400;color:var(--text2)}
-
 .main{max-width:720px;margin:0 auto;padding:1.25rem}
 .panel{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--rl);padding:1.125rem 1.25rem;margin-bottom:1rem}
 .panel-title{font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.875rem}
-
 .scrape-row{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap}
 .markup-pill{display:flex;align-items:center;gap:8px;background:var(--surface2);border-radius:var(--r);padding:8px 14px;flex:1;min-width:130px}
 .markup-pill label{font-size:13px;color:var(--text2);white-space:nowrap}
@@ -44,18 +41,14 @@ header{background:var(--surface);border-bottom:0.5px solid var(--border);padding
 .btn:disabled{opacity:.4;cursor:not-allowed}
 .sp{width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none;flex-shrink:0}
 @keyframes spin{to{transform:rotate(360deg)}}
-
 .status{border-radius:var(--r);padding:10px 14px;font-size:13px;margin-bottom:1rem;display:none;line-height:1.5}
 .status.loading{background:var(--blue-bg);color:var(--blue)}
 .status.error{background:var(--red-bg);color:var(--red)}
 .status.ok{background:var(--green-bg);color:var(--green)}
-
 .stats{display:none;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1rem}
 .stat{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);padding:.75rem 1rem}
 .stat-lbl{font-size:11px;color:var(--text2);margin-bottom:3px}
 .stat-val{font-size:19px;font-weight:700;color:var(--text)}
-
-/* BRAND CARDS */
 #brandPanel{display:none}
 .brand-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;margin-bottom:1rem}
 .brand-card{background:var(--surface2);border-radius:var(--r);padding:.875rem 1rem}
@@ -63,24 +56,21 @@ header{background:var(--surface);border-bottom:0.5px solid var(--border);padding
 .brand-name{font-size:14px;font-weight:700;color:var(--text)}
 .brand-count{font-size:11px;color:var(--text2)}
 .slider-row{display:flex;align-items:center;gap:8px}
-.slider-row input[type=range]{flex:1;accent-color:var(--green);height:4px;cursor:pointer}
+.slider-row input[type=range]{flex:1;accent-color:var(--green);cursor:pointer}
 .bval{font-size:14px;font-weight:700;color:var(--green);min-width:42px;text-align:right}
 .brand-footer{display:flex;justify-content:flex-end;margin-top:4px}
 .brand-reset{font-size:11px;color:var(--text3);cursor:pointer;background:none;border:none;text-decoration:underline}
 .brand-reset:hover{color:var(--text2)}
-.apply-btn{width:100%;background:var(--green-bg);color:var(--green);border:none;border-radius:var(--r);padding:10px;font-size:14px;font-weight:700;cursor:pointer;transition:opacity .15s}
+.apply-btn{width:100%;background:var(--green-bg);color:var(--green);border:none;border-radius:var(--r);padding:10px;font-size:14px;font-weight:700;cursor:pointer}
 .apply-btn:active{opacity:.7}
-
 .search-wrap{position:relative;margin-bottom:.75rem;display:none}
 .search-wrap svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text3);pointer-events:none}
 .search-bar{width:100%;background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r);padding:10px 12px 10px 38px;font-size:14px;color:var(--text)}
 .search-bar::placeholder{color:var(--text3)}
 .search-bar:focus{outline:none;border-color:var(--border2)}
-
 .filter-wrap{display:none;flex-wrap:wrap;gap:6px;margin-bottom:1rem}
 .fp{font-size:12px;font-weight:500;padding:5px 13px;border-radius:20px;border:0.5px solid var(--border2);background:var(--surface);color:var(--text2);cursor:pointer;transition:all .12s}
 .fp.active{background:var(--text);color:var(--bg);border-color:var(--text)}
-
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:9px}
 .card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--rl);padding:.875rem 1rem;display:flex;flex-direction:column;gap:6px}
 .card-brand{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text3)}
@@ -90,12 +80,9 @@ header{background:var(--surface);border-bottom:0.5px solid var(--border);padding
 .price-row{display:flex;align-items:center;justify-content:space-between}
 .price-new{font-size:17px;font-weight:700;color:var(--green)}
 .badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;background:var(--green-bg);color:var(--green)}
-
 .empty{display:none;text-align:center;padding:4rem 1rem;color:var(--text2);font-size:14px}
 .empty-icon{font-size:36px;margin-bottom:.5rem}
-
 @media(max-width:420px){
-  .stats{grid-template-columns:repeat(3,1fr)}
   .stat-val{font-size:15px}
   .grid{grid-template-columns:1fr 1fr}
   .brand-grid{grid-template-columns:1fr}
@@ -103,15 +90,12 @@ header{background:var(--surface);border-bottom:0.5px solid var(--border);padding
 </style>
 </head>
 <body>
-
 <header>
   <div class="hrow">
     <div class="logo">CAH Point <span>precios</span></div>
   </div>
 </header>
-
 <main class="main">
-
   <div class="panel">
     <div class="panel-title">Configuración</div>
     <div class="scrape-row">
@@ -125,33 +109,25 @@ header{background:var(--surface);border-bottom:0.5px solid var(--border);padding
       </button>
     </div>
   </div>
-
   <div id="status" class="status"></div>
-
   <div id="stats" class="stats">
     <div class="stat"><div class="stat-lbl">Productos</div><div class="stat-val" id="sCount">—</div></div>
     <div class="stat"><div class="stat-lbl">Marcas</div><div class="stat-val" id="sBrands">—</div></div>
     <div class="stat"><div class="stat-lbl">Precio prom.</div><div class="stat-val" id="sAvg">—</div></div>
   </div>
-
   <div class="panel" id="brandPanel">
     <div class="panel-title">Markup por marca — arrastrá para ajustar</div>
     <div class="brand-grid" id="brandGrid"></div>
     <button class="apply-btn" onclick="applyMarkups()">Aplicar todos los markups →</button>
   </div>
-
   <div class="search-wrap" id="searchWrap">
     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
     <input type="search" class="search-bar" id="search" placeholder="Buscar producto..." oninput="filterProducts()"/>
   </div>
-
   <div class="filter-wrap" id="filterWrap"></div>
-
   <div id="grid" class="grid"></div>
   <div id="empty" class="empty"><div class="empty-icon">📦</div>No se encontraron productos.</div>
-
 </main>
-
 <script>
 let allProducts = [];
 let brands = {};
@@ -161,8 +137,7 @@ async function scrape() {
   const btn = document.getElementById('btnScrape');
   const spinner = document.getElementById('spinner');
   document.getElementById('btnText').textContent = 'Cargando...';
-  btn.disabled = true;
-  spinner.style.display = 'block';
+  btn.disabled = true; spinner.style.display = 'block';
   document.getElementById('stats').style.display = 'none';
   document.getElementById('brandPanel').style.display = 'none';
   document.getElementById('searchWrap').style.display = 'none';
@@ -174,11 +149,17 @@ async function scrape() {
 
   try {
     showStatus('loading', 'Obteniendo contenido de cah-point.vercel.app...');
-    const proxy = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://cah-point.vercel.app/');
-    const pageRes = await fetch(proxy);
-    if (!pageRes.ok) throw new Error('No se pudo acceder al proxy');
+
+    // Llamamos a nuestro propio endpoint serverless (mismo dominio, sin CORS)
+    const pageRes = await fetch('/api/scrape');
+    if (!pageRes.ok) {
+      const e = await pageRes.json().catch(()=>({}));
+      throw new Error(e.error || 'Error al scrapear (status ' + pageRes.status + ')');
+    }
     const pageData = await pageRes.json();
-    const html = pageData.contents || '';
+    const html = pageData.html || '';
+
+    if (!html) throw new Error('El sitio devolvió contenido vacío.');
 
     showStatus('loading', 'Detectando marcas y productos con IA...');
 
@@ -193,7 +174,7 @@ async function scrape() {
           content: `Analizá este HTML de un sitio de ventas de celulares y accesorios argentino. Extraé TODOS los productos con su nombre, precio y marca detectada (Xiaomi, Apple/iPhone, Motorola, Samsung, etc. Si no podés identificar la marca, poné "Otros").
 Devolvé SOLO JSON válido sin backticks ni texto extra:
 {"products":[{"name":"nombre","price":1234,"brand":"Marca"},...]}
-El precio es solo el número (sin $, sin puntos de miles). Si no hay productos devolvé {"products":[]}.
+El precio es solo el número (sin $ ni puntos de miles). Si no hay productos devolvé {"products":[]}.
 HTML:
 ${html.substring(0, 18000)}`
         }]
@@ -222,7 +203,7 @@ ${html.substring(0, 18000)}`
       .filter(p => p.originalPrice > 0);
 
     if (!allProducts.length) {
-      showStatus('error', 'No se encontraron productos. El sitio puede requerir JavaScript para renderizar. Probá desde desktop o avisale al admin.');
+      showStatus('error', 'No se encontraron productos. El sitio puede requerir JavaScript para renderizar el contenido.');
       return;
     }
 
@@ -230,7 +211,7 @@ ${html.substring(0, 18000)}`
     brands = {};
     brandSet.forEach(b => brands[b] = base);
 
-    showStatus('ok', allProducts.length + ' productos encontrados en ' + brandSet.length + ' marcas detectadas.');
+    showStatus('ok', allProducts.length + ' productos · ' + brandSet.length + ' marcas detectadas.');
     renderStats(brandSet.length);
     renderBrandPanel();
     applyMarkups();
@@ -239,8 +220,7 @@ ${html.substring(0, 18000)}`
   } catch(err) {
     showStatus('error', 'Error: ' + err.message);
   } finally {
-    btn.disabled = false;
-    spinner.style.display = 'none';
+    btn.disabled = false; spinner.style.display = 'none';
     document.getElementById('btnText').textContent = 'Scrapear precios';
   }
 }
